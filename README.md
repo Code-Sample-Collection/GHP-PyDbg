@@ -1,7 +1,7 @@
 # Introduction
 这个坑是我看[< Gray Hat Python >](https://www.amazon.com/Gray-Hat-Python-Programming-Engineers/dp/1593271921)时写的代码。
 
-中译本目前我找到两种： 
+中译本目前我找到两种：
 
 1. 电子工业出版社翻译的[《Python灰帽子》](https://book.douban.com/subject/6025284/)    
 内容翻译的很顺畅(小标题有少量瑕疵)，但代码排版有问题(主要是我买不起[游标卡尺](https://s.taobao.com/search?q=%E6%B8%B8%E6%A0%87%E5%8D%A1%E5%B0%BA))，而且原作代码中的错误并没有修正
@@ -22,7 +22,7 @@ JVM: OpenJDK Server VM by JetBrains s.r.o
 
 
 代码修正主要参考  
-- [手把手教你写Windows 64位平台调试器 - ArayzBuffer - 博客园](http://www.cnblogs.com/bRAyKpoyNt/p/3855694.html)  
+- [手把手教你写Windows 64位平台调试器 - ArayzBuffer - 博客园](http://www.cnblogs.com/bRAyKpoyNt/p/3855694.html)[@Arayz](https://github.com/Arayz)  
 - [stacksmash.org &raquo; Gray Hat Python by Justin Seitz &#8211; Errata](http://stacksmash.org/2009/06/gray-hat-python-by-justin-seitz-errata/)
 
 # [BugList](BugList.md)
