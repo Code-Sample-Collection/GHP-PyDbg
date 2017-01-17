@@ -5,7 +5,9 @@ kernel32 = windll.kernel32
 
 class debugger():
     def __init__(self):
-        pass
+        self.h_process       = None
+        self.pid             = None
+        self.debugger_active = False
 
     def load(self,path_to_exe):
         # dwCreation flag determines how to create the process
@@ -36,5 +38,57 @@ class debugger():
                                     byref(process_information)):
             print "[*] We have successfully launched the process!"
             print "[*] PID: %d" % process_information.dwProcessId
+            # Obtain a valid handle to the newly created process
+            # and store it for future access
+            self.h_process = self.open_process(process_information.dwProcessId)
         else:
             print "[*] Error: 0x%08x." % kernel32.GetLastError()
+
+    def open_process(self, pid):
+
+        h_process = kernel32.OpenProcess(PROCESS_ALL_ACCESS, pid, False)
+        return h_process
+
+    def attach(self, pid):
+
+        self.h_process = self.open_process(pid)
+
+        # We attempt to attach to the process
+        # if this fails we exit the call
+        if kernel32.DebugActiveProcess(pid):
+            self.debugger_active = True
+            self.pid = int(pid)
+            self.run()  #这一句在3.1节里不能删掉，否则无法正常运行。之后要注释掉，不然会卡在这里
+        else:
+            print "[*] Unable to attach to the process."
+
+    def run(self):
+        # Now we have to poll the debuggee for
+        # debugging events
+
+        while self.debugger_active == True:
+            self.get_debug_event()
+
+    def get_debug_event(self):
+
+        debug_event = DEBUG_EVENT()
+        continue_status = DBG_CONTINUE
+
+        if kernel32.WaitForDebugEvent(byref(debug_event), INFINITE):
+            # We aren't going to build any event handlers
+            # just yet. Let's just resume the process for now.
+            raw_input("Press a key to continue...")
+            self.debugger_active = False
+            kernel32.ContinueDebugEvent(
+                                        debug_event.dwProcessId,
+                                        debug_event.dwThreadId,
+                                        continue_status)
+
+    def detach(self):
+
+        if kernel32.DebugActiveProcessStop(self.pid):
+            print "[*] Finished debugging. Exiting..."
+            return True
+        else:
+            print "There was an error"
+            return False
