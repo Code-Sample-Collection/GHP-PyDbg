@@ -125,13 +125,13 @@ class debugger():
 
     def get_thread_context(self, thread_id):
 
-        context = CONTEXT()
-        context.ContextFlags = CONTEXT_FULL | CONTEXT_DEBUG_REGISTERS
+        context64 = WOW64_CONTEXT()
+        context64.ContextFlags = CONTEXT_FULL | CONTEXT_DEBUG_REGISTERS
 
         # Obtain a handle to the thread
         h_thread = self.open_thread(thread_id)
-        if kernel32.GetThreadContext(h_thread, byref(context)):
+        if kernel32.GetThreadContext(h_thread, byref(context64)):
             kernel32.CloseHandle(h_thread)
-            return context
+            return context64
         else:
             return False

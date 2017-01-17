@@ -16,13 +16,13 @@ for thread in list:
 
     # Now let's output the contents of some of the registers
     print "[*] Dumping registers for thread ID: 0x%08x" % thread
-    print "[**] EIP: 0x%08x" % thread_context.Eip
-    print "[**] ESP: 0x%08x" % thread_context.Esp
-    print "[**] EBP: 0x%08x" % thread_context.Ebp
-    print "[**] EAX: 0x%08x" % thread_context.Eax
-    print "[**] EBX: 0x%08x" % thread_context.Ebx
-    print "[**] ECX: 0x%08x" % thread_context.Ecx
-    print "[**] EDX: 0x%08x" % thread_context.Edx
+    print "[**] RIP: 0x%08x" % thread_context.Rip
+    print "[**] RSP: 0x%08x" % thread_context.Rsp
+    print "[**] RBP: 0x%08x" % thread_context.Rbp
+    print "[**] RAX: 0x%08x" % thread_context.Rax
+    print "[**] RBX: 0x%08x" % thread_context.Rbx
+    print "[**] RCX: 0x%08x" % thread_context.Rcx
+    print "[**] RDX: 0x%08x" % thread_context.Rdx
     print "[*] END DUMP"
 
 debugger.detach()
