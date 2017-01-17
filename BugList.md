@@ -5,4 +5,5 @@
 |:------|:---------|:---------|:--------:|:--------:|
 |C3.1|load|CreateProcessA函数的第二个参数连着有四个None(原书只有一个)|P41|P27|
 |C3.1|attach|删除or注释掉 `self.run()`|P45|*P29|
-||||||
+|C3.2|enumerate_threads|`kernel32.CloseHandle(snapshot)
+return thread_list` 两行要和上面的 `while success:` 对齐(即减少缩进)|P52|P34|
