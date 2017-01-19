@@ -24,5 +24,6 @@ JVM: OpenJDK Server VM by JetBrains s.r.o
 代码修正主要参考  
 - [手把手教你写Windows 64位平台调试器 - ArayzBuffer - 博客园](http://www.cnblogs.com/bRAyKpoyNt/p/3855694.html)[@Arayz](https://github.com/Arayz)  
 - [stacksmash.org &raquo; Gray Hat Python by Justin Seitz &#8211; Errata](http://stacksmash.org/2009/06/gray-hat-python-by-justin-seitz-errata/)
+- [灰帽子Python 学习记录 - MarStarck的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/MarStarck/article/category/1697445)
 
 # [BugList](BugList.md)
